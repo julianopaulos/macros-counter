@@ -10,7 +10,7 @@ export default function App() {
         placeholder='Testando input'
       />
       <DefaultInputText
-        placeholder='Testando input2'
+        placeholder='Testando testando'
       />
       <DefaultButton
         handlePress={() => alert('cliquei')}
