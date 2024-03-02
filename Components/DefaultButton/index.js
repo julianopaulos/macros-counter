@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, Pressable, StyleSheet, Text, TouchableHighlight } from 'react-native'
+import { Pressable, StyleSheet, Text } from 'react-native'
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     default: {
         backgroundColor: 'rgba(120, 120, 220, 1)',
         borderRadius: 6,
@@ -27,23 +27,23 @@ const style = StyleSheet.create({
     }
 });
 
-function ButtonComp({
-    onPressFunc,
+function DefaultButton({
+    handlePress,
     title,
     backgroundColor,
     fontSize,
     borderRadius
 }) {
-  const newStyleProps = {borderRadius: borderRadius ?? style.default.borderRadius, backgroundColor: backgroundColor ?? style.default.backgroundColor};
-  const touchProps = {
-    style: ({pressed}) => pressed ? {...style.buttomHover, ...newStyleProps} : {...style.buttom, ...newStyleProps},
-    onPress: onPressFunc
-  }
+  const newStyleProps = {borderRadius: borderRadius ?? styles.default.borderRadius, backgroundColor: backgroundColor ?? styles.default.backgroundColor};
+
   return (
-    <Pressable {...touchProps}>
-        <Text style={{...style.text, fontSize: fontSize}}>{title}</Text>
+    <Pressable
+     style={({pressed}) => pressed ? {...styles.buttomHover, ...newStyleProps} : {...styles.buttom, ...newStyleProps}}
+     onPress={handlePress}
+    >
+        <Text styles={{...styles.text, fontSize: fontSize}}>{title}</Text>
     </Pressable>
   )
 }
 
-export default ButtonComp
+export default DefaultButton

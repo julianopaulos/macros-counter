@@ -1,13 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import ButtonComp from './Components/Button';
+import DefaultButton from './Components/DefaultButton';
+import DefaultInputText from './Components/DefaultInputText';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello world!</Text>
-      <ButtonComp
-        onPressFunc={() => alert('cliquei')}
+      <DefaultInputText
+        placeholder='Testando input'
+      />
+      <DefaultInputText
+        placeholder='Testando input2'
+      />
+      <DefaultButton
+        handlePress={() => alert('cliquei')}
         title='testando'
         fontSize={20}
       />
