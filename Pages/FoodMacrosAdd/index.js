@@ -18,7 +18,7 @@ function FoodMacrosAdd() {
     <DefaultScrollView style={styles.container}>
       <Text>Cadastro de macros por porção de 100g de alimento</Text>
       <DefaultInputText
-        placeholder='Nome do alimento'
+        placeholder='Nome do alimento1'
       />
       <DefaultInputText
         placeholder='Calorias'
