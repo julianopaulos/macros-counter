@@ -1,30 +1,23 @@
 import React from 'react'
-import { Pressable, StyleSheet, Text } from 'react-native'
+import { Pressable, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 const styles = StyleSheet.create({
     default: {
-        backgroundColor: 'rgba(120, 120, 220, 1)',
-        borderRadius: 6,
+      backgroundColor: 'rgba(120, 120, 220, 1)',
+      borderRadius: 6,
     },
     buttom: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(120, 120, 220, 1)',
-        paddingVertical: '5px',
-        paddingHorizontal: '12px',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'rgba(120, 120, 220, 1)',
+      minWidth: 220,
+      minHeight: 50,
     },
     text: {
-        padding: '0',
-        color: 'rgba(240, 240, 250, 1)'
+      padding: '0',
+      color: 'rgba(240, 240, 250, 1)',
+      fontWeight: 'bold'
     },
-    buttomHover: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(120, 120, 220, 1)',
-        paddingVertical: '5px',
-        paddingHorizontal: '12px',
-        opacity: '.7'
-    }
 });
 
 function DefaultButton({
@@ -37,12 +30,12 @@ function DefaultButton({
   const newStyleProps = {borderRadius: borderRadius ?? styles.default.borderRadius, backgroundColor: backgroundColor ?? styles.default.backgroundColor};
 
   return (
-    <Pressable
-     style={({pressed}) => pressed ? {...styles.buttomHover, ...newStyleProps} : {...styles.buttom, ...newStyleProps}}
-     onPress={handlePress}
+    <TouchableOpacity
+      style={{...styles.buttom, ...newStyleProps}}
+      onPress={handlePress}
     >
-        <Text styles={{...styles.text, fontSize: fontSize}}>{title}</Text>
-    </Pressable>
+      <Text style={{...styles.text, fontSize: fontSize}}>{title}</Text>
+    </TouchableOpacity>
   )
 }
 

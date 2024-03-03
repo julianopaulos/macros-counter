@@ -1,24 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import DefaultButton from './Components/DefaultButton';
-import DefaultInputText from './Components/DefaultInputText';
+import { StyleSheet } from 'react-native';
+import DefaultScrollView from './Components/DefaultScrollView';
+import MacrosRegister from './Pages/FoodMacrosAdd';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <DefaultInputText
-        placeholder='Testando input'
-      />
-      <DefaultInputText
-        placeholder='Testando testando'
-      />
-      <DefaultButton
-        handlePress={() => alert('cliquei')}
-        title='testando'
-        fontSize={20}
-      />
-      <StatusBar style="auto" />
-    </View>
+    <DefaultScrollView
+     style={styles.container}
+     body={<MacrosRegister/>}
+    />
   );
 }
 
