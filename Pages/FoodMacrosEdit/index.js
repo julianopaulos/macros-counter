@@ -13,10 +13,10 @@ const styles = StyleSheet.create({
   },
 });
 
-function FoodMacrosAdd() {
+function FoodMacrosEdit() {
   return (
     <DefaultScrollView style={styles.container}>
-      <Text>Cadastro de macros por porção de 100g de alimento</Text>
+      <Text>Edição de macros por porção de 100g de alimento</Text>
       <DefaultInputText
         placeholder='Nome do alimento'
       />
@@ -62,7 +62,7 @@ function FoodMacrosAdd() {
       />
       <DefaultButton
         handlePress={() => alert('cliquei')}
-        title='Cadastrar alimento'
+        title='Editar propriedades'
         fontSize={18}
       />
       <StatusBar style="auto" />
@@ -70,4 +70,4 @@ function FoodMacrosAdd() {
   )
 }
 
-export default FoodMacrosAdd
+export default FoodMacrosEdit

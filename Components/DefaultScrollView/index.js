@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import { KeyboardAvoidingView, ScrollView, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
@@ -12,11 +12,11 @@ const styles = StyleSheet.create({
     }
   });
 
-function DefaultScrollView({body}) {
+function DefaultScrollView(props) {
   return (
     <KeyboardAvoidingView behavior='padding' style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
-        {body}
+        {props.children}
       </ScrollView>
     </KeyboardAvoidingView>
   )
