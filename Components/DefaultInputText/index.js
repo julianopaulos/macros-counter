@@ -3,8 +3,6 @@ import { StyleSheet, TextInput } from 'react-native';
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
-    width: 200,
     margin: 12,
     borderWidth: 1,
     padding: 10,
@@ -15,11 +13,13 @@ const styles = StyleSheet.create({
 function DefaultInputText({
     onChange,
     placeholder,
-    keyboardType='default'
+    keyboardType='default',
+    inputWitdh = 200,
+    inputHeight = 40
 }) {
   return (
     <TextInput
-      style={styles.input}
+      style={{...styles.input, width: inputWitdh, height: inputHeight}}
       onChangeText={onChange}
       placeholder={placeholder}
       keyboardType={keyboardType}

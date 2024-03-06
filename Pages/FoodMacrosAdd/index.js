@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StatusBar, StyleSheet, Text, View } from 'react-native'
 import DefaultInputText from '../../Components/DefaultInputText'
 import DefaultButton from '../../Components/DefaultButton'
 import DefaultScrollView from '../../Components/DefaultScrollView';
+import CustomRadioButton from '../../Components/CustomRadioButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,12 +15,30 @@ const styles = StyleSheet.create({
 });
 
 function FoodMacrosAdd() {
+  const [selectedValue, setSelectedValue] = useState('g')
+
   return (
     <DefaultScrollView style={styles.container}>
-      <Text>Cadastro de macros por porção de 100g de alimento</Text>
+      <Text>Cadastro de macros por porção de alimento</Text>
       <DefaultInputText
-        placeholder='Nome do alimento1'
+        placeholder='Nome do alimento'
       />
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+        }}>
+        <DefaultInputText
+          placeholder='Porção'
+          inputWitdh={80}
+          inputHeight={45}
+          keyboardType='numeric'
+        />
+        <CustomRadioButton text='g' onSelect={() => setSelectedValue('g')} selected={selectedValue == 'g'}/>
+        <CustomRadioButton text='ml' onSelect={() => setSelectedValue('ml')} selected={selectedValue == 'ml'}/>
+      </View>
       <DefaultInputText
         placeholder='Calorias'
         keyboardType='numeric'

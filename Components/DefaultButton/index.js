@@ -1,12 +1,12 @@
 import React from 'react'
-import { Pressable, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 const styles = StyleSheet.create({
     default: {
       backgroundColor: 'rgba(120, 120, 220, 1)',
       borderRadius: 6,
     },
-    buttom: {
+    button: {
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: 'rgba(120, 120, 220, 1)',
@@ -31,7 +31,7 @@ function DefaultButton({
 
   return (
     <TouchableOpacity
-      style={{...styles.buttom, ...newStyleProps}}
+      style={{...styles.button, ...newStyleProps}}
       onPress={handlePress}
     >
       <Text style={{...styles.text, fontSize: fontSize}}>{title}</Text>
