@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "11",
+    "project_id": "macros-counter",
+    "storage_bucket": "macros-counter-1.host.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8",
+        "android_client_info": {
+          "package_name": "macros.counter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "abc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

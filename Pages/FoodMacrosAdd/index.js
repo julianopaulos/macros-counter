@@ -7,6 +7,8 @@ import CustomRadioButton from '../../Components/CustomRadioButton';
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
+    flexDirection: 'column',
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
@@ -27,17 +29,37 @@ function FoodMacrosAdd() {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'space-around',
           alignItems: 'center',
+          justifyContent: 'space-between',
+          width: 200
         }}>
         <DefaultInputText
           placeholder='Porção'
-          inputWitdh={80}
-          inputHeight={45}
+          inputWitdh={100}
           keyboardType='numeric'
+          margin={0}
         />
-        <CustomRadioButton text='g' onSelect={() => setSelectedValue('g')} selected={selectedValue == 'g'}/>
-        <CustomRadioButton text='ml' onSelect={() => setSelectedValue('ml')} selected={selectedValue == 'ml'}/>
+        <View
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+          width: 95
+        }}>
+          <CustomRadioButton
+            text='g'
+            onSelect={() => setSelectedValue('g')}
+            selected={selectedValue == 'g'}
+            width={45}
+          />
+          <CustomRadioButton
+            text='ml'
+            onSelect={() => setSelectedValue('ml')}
+            selected={selectedValue == 'ml'}
+            width={45}
+          />
+        </View>
       </View>
       <DefaultInputText
         placeholder='Calorias'
