@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { StatusBar, StyleSheet, Text, View } from 'react-native'
+import { Alert, StatusBar, StyleSheet, Text, View } from 'react-native'
 import DefaultInputText from '../../Components/DefaultInputText'
 import DefaultButton from '../../Components/DefaultButton'
 import DefaultScrollView from '../../Components/DefaultScrollView';
 import CustomRadioButton from '../../Components/CustomRadioButton';
-import { addFoodMacros } from '../../services/addToCollection'
+import { addFoodMacros } from '../../services/addToCollection';
 
 const styles = StyleSheet.create({
   container: {
@@ -52,8 +52,33 @@ function FoodMacrosAdd() {
     try {
       await addFoodMacros(data);
       //display success message
+      Alert.alert(`Alimento ${name} cadastrado com sucesso!`, 'Tudo certo, pode cadastrar o próximo!', [
+        {
+          text: 'Ok',
+          style: 'default',
+        },
+      ]);
+      setName('')
+      setPortion('0')
+      setPortionType('0')
+      setCalories('0')
+      setProteins('0')
+      setCarbos('0')
+      setTotalFat('0')
+      setSaturatedFat('0')
+      setMonounsaturatedFat('0')
+      setPolyunsaturatedFat('0')
+      setTransFat('0')
+      setDietaryFiber('0')
+      setSodium('0')
     } catch (error) {
       console.log('error', error.message);
+      Alert.alert(`Erro ao cadastrar o alimento ${name}!`, 'Ops, verifique os campos e tente novamente!', [
+        {
+          text: 'Ok',
+          style: 'default',
+        },
+      ]);
       //display error message
     }
   };
