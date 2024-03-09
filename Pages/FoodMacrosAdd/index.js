@@ -4,7 +4,7 @@ import DefaultInputText from '../../Components/DefaultInputText'
 import DefaultButton from '../../Components/DefaultButton'
 import DefaultScrollView from '../../Components/DefaultScrollView';
 import CustomRadioButton from '../../Components/CustomRadioButton';
-import { addFoodMacros } from '../../services/addToCollection';
+import { addFoodMacros } from '../../services/addOrEditCollection';
 
 const styles = StyleSheet.create({
   container: {

@@ -2,6 +2,7 @@ import FoodMacrosAdd from './Pages/FoodMacrosAdd';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import FoodMacrosEdit from './Pages/FoodMacrosEdit';
+import FoodMacrosList from './Pages/FoodMacrosList';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,6 +14,11 @@ export default function App() {
           name='FoodMacrosAdd'
           component={FoodMacrosAdd}
           options={{title: 'Cadastro de alimentos'}}
+        />
+        <Tab.Screen
+          name='FoodMacrosList'
+          component={FoodMacrosList}
+          options={{title: 'listagem de alimentos'}}
         />
         <Tab.Screen
           name='FoodMacrosEdit'
