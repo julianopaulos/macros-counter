@@ -2,13 +2,11 @@
 
 # dependencies
 node_modules/
-
+.env
 # Expo
 .expo/
 dist/
 web-build/
-services/firebase-credentials.json
-services/google-services.json
 
 # Native
 *.orig.*

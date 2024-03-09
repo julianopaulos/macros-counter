@@ -4,6 +4,7 @@ import DefaultInputText from '../../Components/DefaultInputText'
 import DefaultButton from '../../Components/DefaultButton'
 import DefaultScrollView from '../../Components/DefaultScrollView';
 import CustomRadioButton from '../../Components/CustomRadioButton';
+import { addFoodMacros } from '../../services/addToCollection'
 
 const styles = StyleSheet.create({
   container: {
@@ -17,13 +18,53 @@ const styles = StyleSheet.create({
 });
 
 function FoodMacrosAdd() {
-  const [selectedValue, setSelectedValue] = useState('g')
+  const [name, setName] = useState('');
+  const [portion, setPortion] = useState('0');
+  const [portionType, setPortionType] = useState('g');
+  const [calories, setCalories] = useState('0');
+  const [proteins, setProteins] = useState('0');
+  const [carbos, setCarbos] = useState('0');
+  const [totalFat, setTotalFat] = useState('0');
+  const [saturatedFat, setSaturatedFat] = useState('0');
+  const [monounsaturatedFat, setMonounsaturatedFat] = useState('0');
+  const [polyunsaturatedFat, setPolyunsaturatedFat] = useState('0');
+  const [transFat, setTransFat] = useState('0');
+  const [dietaryFiber, setDietaryFiber] = useState('0');
+  const [sodium, setSodium] = useState('0');
+
+  const handleSubmit = async () => {
+    data = {
+      name,
+      portion,
+      portionType,
+      calories,
+      proteins,
+      carbos,
+      totalFat,
+      saturatedFat,
+      monounsaturatedFat,
+      polyunsaturatedFat,
+      transFat,
+      dietaryFiber,
+      sodium,
+    };
+
+    try {
+      await addFoodMacros(data);
+      //display success message
+    } catch (error) {
+      console.log('error', error.message);
+      //display error message
+    }
+  };
 
   return (
     <DefaultScrollView style={styles.container}>
       <Text>Cadastro de macros por porção de alimento</Text>
       <DefaultInputText
         placeholder='Nome do alimento'
+        onChange={e => setName(e)}
+        defaultValue={name}
       />
       <View
         style={{
@@ -38,6 +79,8 @@ function FoodMacrosAdd() {
           inputWitdh={100}
           keyboardType='numeric'
           margin={0}
+          onChange={e => setPortion(e)}
+          defaultValue={portion}
         />
         <View
         style={{
@@ -49,14 +92,14 @@ function FoodMacrosAdd() {
         }}>
           <CustomRadioButton
             text='g'
-            onSelect={() => setSelectedValue('g')}
-            selected={selectedValue == 'g'}
+            onSelect={() => setPortionType('g')}
+            selected={portionType == 'g'}
             width={45}
           />
           <CustomRadioButton
             text='ml'
-            onSelect={() => setSelectedValue('ml')}
-            selected={selectedValue == 'ml'}
+            onSelect={() => setPortionType('ml')}
+            selected={portionType == 'ml'}
             width={45}
           />
         </View>
@@ -64,45 +107,65 @@ function FoodMacrosAdd() {
       <DefaultInputText
         placeholder='Calorias'
         keyboardType='numeric'
+        onChange={e => setCalories(e)}
+        defaultValue={calories}
       />
       <DefaultInputText
         placeholder='Proteínas'
         keyboardType='numeric'
+        onChange={e => setProteins(e)}
+        defaultValue={proteins}
       />
       <DefaultInputText
         placeholder='Carboidratos'
         keyboardType='numeric'
+        onChange={e => setCarbos(e)}
+        defaultValue={carbos}
       />
       <DefaultInputText
         placeholder='Gorduras totais'
         keyboardType='numeric'
+        onChange={e => setTotalFat(e)}
+        defaultValue={totalFat}
       />
       <DefaultInputText
         placeholder='Gordura saturada'
         keyboardType='numeric'
+        onChange={e => setSaturatedFat(e)}
+        defaultValue={saturatedFat}
       />
       <DefaultInputText
         placeholder='Gordura monoinsaturada'
         keyboardType='numeric'
+        onChange={e => setMonounsaturatedFat(e)}
+        defaultValue={monounsaturatedFat}
       />
       <DefaultInputText
         placeholder='Gordura poliinsaturada'
         keyboardType='numeric'
+        onChange={e => setPolyunsaturatedFat(e)}
+        defaultValue={polyunsaturatedFat}
       />
       <DefaultInputText
         placeholder='Gordura trans'
         keyboardType='numeric'
+        onChange={e => setTransFat(e)}
+        defaultValue={transFat}
       />
       <DefaultInputText
         placeholder='Fibra alimentar'
         keyboardType='numeric'
+        onChange={e => setDietaryFiber(e)}
+        defaultValue={dietaryFiber}
       />
       <DefaultInputText
-        placeholder='Sódio'
+        placeholder='Sódio (mg)'
         keyboardType='numeric'
+        onChange={e => setSodium(e)}
+        defaultValue={sodium}
       />
       <DefaultButton
-        handlePress={() => alert('cliquei')}
+        handlePress={async () => await handleSubmit()}
         title='Cadastrar alimento'
         fontSize={18}
       />

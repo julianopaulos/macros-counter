@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
 });
 
 function DefaultInputText({
+    defaultValue,
     onChange,
     placeholder,
     keyboardType='default',
@@ -27,6 +28,7 @@ function DefaultInputText({
     <TextInput
       style={{...styles.input, ...customStyle}}
       onChangeText={onChange}
+      defaultValue={defaultValue}
       placeholder={placeholder}
       keyboardType={keyboardType}
     />

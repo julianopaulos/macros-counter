@@ -18,7 +18,6 @@
       "supportsTablet": true
     },
     "android": {
-      "googleServicesFile": "./services/google-services.json",
       "package": "macros.counter",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
