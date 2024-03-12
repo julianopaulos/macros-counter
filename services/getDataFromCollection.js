@@ -10,7 +10,6 @@ const getDataFromCollection = async (collectionName, id) => {
     const data = id ? await getDoc(collection(db, `${collectionName}/${id}`)) : await getDocs(collection(db, collectionName));
     const rows = [];
     data.forEach(doc => {
-      // console.log('doc.data()', doc.data());
       rows.push(doc.data());
     })
 

@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
       backgroundColor: 'rgba(120, 120, 220, 1)',
       minWidth: 220,
       minHeight: 50,
+      margin: 5
     },
     text: {
       padding: '0',

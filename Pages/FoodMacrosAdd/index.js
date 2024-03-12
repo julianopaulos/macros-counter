@@ -60,7 +60,7 @@ function FoodMacrosAdd() {
       ]);
       setName('')
       setPortion('0')
-      setPortionType('0')
+      setPortionType('g')
       setCalories('0')
       setProteins('0')
       setCarbos('0')

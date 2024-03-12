@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'rgba(50, 50, 50, .6)',
     borderRadius: 3,
-    margin: 10
+    margin: 10,
+    padding: 2
   },
   titleContainer: {
     flexDirection: 'row',
