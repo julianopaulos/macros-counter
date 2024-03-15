@@ -16,8 +16,9 @@ function DefaultInputText({
     keyboardType='default',
     inputWitdh = 200,
     inputHeight = 40,
-    margin = 12
-}) {
+    margin = 12,
+    editable = true,
+}, props) {
   const customStyle = {
     width: inputWitdh,
     height: inputHeight,
@@ -31,6 +32,8 @@ function DefaultInputText({
       defaultValue={defaultValue}
       placeholder={placeholder}
       keyboardType={keyboardType}
+      editable={editable}
+      {...props}
     />
   )
 }

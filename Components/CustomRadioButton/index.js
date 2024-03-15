@@ -6,11 +6,11 @@ const styles = StyleSheet.create({
     button: {
       display: 'flex',
       alignItems: 'center',
+      justifyContent: 'center',
       borderRadius: 8,
       borderWidth: 1,
       borderColor: 'rgba(200, 230, 240, 1)',
-      width: 50,
-      height: 40
+      width: 50
     },
     text: {
       display: 'flex',
@@ -23,10 +23,11 @@ const styles = StyleSheet.create({
     },
 });
 
-function CustomRadioButton({ text, onSelect, selected, width = 50 }) {
+function CustomRadioButton({ text, onSelect, selected, width = 50, height = 40 }) {
   const customStyle = {
     backgroundColor: selected ? 'rgba(180,180,200,.4)' : 'rgba(255,255,255,1)',
-    width: width
+    width: width,
+    height: height
   };
 
   return (

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   select: {
     borderColor: 'rgba(40, 60, 80, 1)',
     borderWidth: 1,
-    height: 40,
+    height: 50,
     justifyContent: 'center',
     borderRadius: 5,
     margin: 12
@@ -33,15 +33,19 @@ function DailyMacrosAdd() {
   const [foodList, setFoodList] = useState([]);
   const [portion, setPortion] = useState('0');
   const [portionType, setPortionType] = useState('g');
-  const [selectedFood, setSelectedFood] = useState({});
+  const [selectedFood, setSelectedFood] = useState(null);
+  const [calories, setCalories] = useState('0')
 
   const loadData = async () => {
     setFoodList(await listFood());
   }
-
+  console.log('calories', calories)
   useEffect(() => {
     loadData();
   }, [isFocused]);
+  useEffect(() => {
+    if(selectedFood) setCalories(selectedFood.calories * Number(portion));
+  }, [selectedFood, portion]);
 
   const handleSubmit = async () => {
     data = {
@@ -82,7 +86,9 @@ function DailyMacrosAdd() {
           style={{width: 300}}
           selectedValue={selectedFood}
           onValueChange={(itemValue) => setSelectedFood(itemValue)}
+          defaultValue={null}
         >
+            <Picker.Item label='' value={null} />
             {foodList.map((food) => (
               <Picker.Item label={food.name} value={food} key={food.id} />
             ))}
@@ -99,6 +105,7 @@ function DailyMacrosAdd() {
         <DefaultInputText
           placeholder='Porção'
           inputWitdh={200}
+          inputHeight={50}
           keyboardType='numeric'
           margin={0}
           onChange={e => setPortion(e)}
@@ -117,14 +124,36 @@ function DailyMacrosAdd() {
             onSelect={() => setPortionType('g')}
             selected={portionType == 'g'}
             width={45}
+            height={50}
           />
           <CustomRadioButton
             text='ml'
             onSelect={() => setPortionType('ml')}
             selected={portionType == 'ml'}
             width={45}
+            height={50}
           />
         </View>
+      </View>
+      <View style={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: 300,
+        margin: 10
+      }}>
+        <Text style={{width: 100, fontSize: 20}}>Calorias</Text>
+        <DefaultInputText
+          placeholder='Porção'
+          inputWitdh={150}
+          inputHeight={50}
+          keyboardType='numeric'
+          defaultValue={calories.toString()}
+          value={calories.toString()}
+          editable={false}
+          margin={0}
+        />
       </View>
       <DefaultButton
         handlePress={async () => await handleSubmit()}
