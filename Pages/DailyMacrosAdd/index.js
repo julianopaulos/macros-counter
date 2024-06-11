@@ -44,7 +44,7 @@ function DailyMacrosAdd() {
     loadData();
   }, [isFocused]);
   useEffect(() => {
-    if(selectedFood) setCalories(selectedFood.calories * Number(portion));
+    if(selectedFood) setCalories((selectedFood.calories ?? 0) * Number(portion));
   }, [selectedFood, portion]);
 
   const handleSubmit = async () => {
@@ -55,7 +55,7 @@ function DailyMacrosAdd() {
     };
 
     try {
-      // await addDailyMacros(data);
+      await addDailyMacros(data);
       //display success message
       // Alert.alert(`Alimento ${name} cadastrado com sucesso!`, 'Tudo certo, pode cadastrar o próximo!', [
       //   {
@@ -69,12 +69,12 @@ function DailyMacrosAdd() {
       setSelectedFood({});
     } catch (error) {
       console.log('error', error.message);
-      Alert.alert(`Erro ao cadastrar o refeição!`, 'Ops, verifique os campos e tente novamente!', [
-        {
-          text: 'Ok',
-          style: 'default',
-        },
-      ]);
+      // Alert.alert(`Erro ao cadastrar o refeição!`, 'Ops, verifique os campos e tente novamente!', [
+      //   {
+      //     text: 'Ok',
+      //     style: 'default',
+      //   },
+      // ]);
     }
   };
 

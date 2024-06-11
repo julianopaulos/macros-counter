@@ -17,11 +17,15 @@ export default function App() {
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-            if (route.name === 'FoodMacrosAdd') {
-              console.log('route.name', route.name)
-              iconName = 'fast-food'
-            } else {
-              iconName = 'airplane'
+            switch (route.name) {
+              case 'FoodMacrosAdd':
+                iconName = 'fast-food'
+                break;
+              case 'FoodMacrosList':
+                iconName = 'add'
+                break;
+              default:
+                iconName = 'airplane'
             }
 
             return <Ionicons name={iconName} size={size} color={color} />;
