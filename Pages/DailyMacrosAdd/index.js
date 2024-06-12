@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Alert } from 'react-native'
 import DefaultInputText from '../../Components/DefaultInputText'
 import CustomRadioButton from '../../Components/CustomRadioButton'
 import DefaultButton from '../../Components/DefaultButton';
@@ -57,24 +57,24 @@ function DailyMacrosAdd() {
     try {
       await addDailyMacros(data);
       //display success message
-      // Alert.alert(`Alimento ${name} cadastrado com sucesso!`, 'Tudo certo, pode cadastrar o próximo!', [
-      //   {
-      //     text: 'Ok',
-      //     style: 'default',
-      //   },
-      // ]);
+      Alert.alert(`Refeição cadastrada com sucesso!`, 'Tudo certo, pode cadastrar o próximo!', [
+        {
+          text: 'Ok',
+          style: 'default',
+        },
+      ]);
 
       setPortion('0');
       setPortionType('g');
       setSelectedFood({});
     } catch (error) {
       console.log('error', error.message);
-      // Alert.alert(`Erro ao cadastrar o refeição!`, 'Ops, verifique os campos e tente novamente!', [
-      //   {
-      //     text: 'Ok',
-      //     style: 'default',
-      //   },
-      // ]);
+      Alert.alert(`Erro ao cadastrar o refeição!`, 'Ops, verifique os campos e tente novamente!', [
+        {
+          text: 'Ok',
+          style: 'default',
+        },
+      ]);
     }
   };
 
@@ -157,7 +157,7 @@ function DailyMacrosAdd() {
       </View>
       <DefaultButton
         handlePress={async () => await handleSubmit()}
-        title='Cadastrar alimento'
+        title='Cadastrar refeição'
         fontSize={18}
       />
     </View>

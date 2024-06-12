@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import FoodMacrosAdd from './Pages/FoodMacrosAdd';
 import FoodMacrosList from './Pages/FoodMacrosList';
 import DailyMacrosAdd from './Pages/DailyMacrosAdd';
-import DailyMacrosList from './Pages/DailyMacrosList';
+import DailyMealsList from './Pages/DailyMealsList';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,8 +22,14 @@ export default function App() {
                 iconName = 'fast-food'
                 break;
               case 'FoodMacrosList':
-                iconName = 'add'
+                iconName = 'list'
                 break;
+              case 'DailyMacrosAdd':
+                iconName = 'add-circle'
+              break;
+              case 'DailyMealsList':
+                iconName = 'list-circle'
+              break;
               default:
                 iconName = 'airplane'
             }
@@ -50,8 +56,8 @@ export default function App() {
           options={{title: 'Cadastrar refeição'}}
         />
         <Tab.Screen
-          name='DailyMacrosList'
-          component={DailyMacrosList}
+          name='DailyMealsList'
+          component={DailyMealsList}
           options={{title: 'Listar refeições'}}
         />
       </Tab.Navigator>

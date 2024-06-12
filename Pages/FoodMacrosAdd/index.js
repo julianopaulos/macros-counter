@@ -19,18 +19,18 @@ const styles = StyleSheet.create({
 
 function FoodMacrosAdd() {
   const [name, setName] = useState('');
-  const [portion, setPortion] = useState('0');
+  const [portion, setPortion] = useState('');
   const [portionType, setPortionType] = useState('g');
-  const [calories, setCalories] = useState('0');
-  const [proteins, setProteins] = useState('0');
-  const [carbos, setCarbos] = useState('0');
-  const [totalFat, setTotalFat] = useState('0');
-  const [saturatedFat, setSaturatedFat] = useState('0');
-  const [monounsaturatedFat, setMonounsaturatedFat] = useState('0');
-  const [polyunsaturatedFat, setPolyunsaturatedFat] = useState('0');
-  const [transFat, setTransFat] = useState('0');
-  const [dietaryFiber, setDietaryFiber] = useState('0');
-  const [sodium, setSodium] = useState('0');
+  const [calories, setCalories] = useState('');
+  const [proteins, setProteins] = useState('');
+  const [carbos, setCarbos] = useState('');
+  const [totalFat, setTotalFat] = useState('');
+  const [saturatedFat, setSaturatedFat] = useState('');
+  const [monounsaturatedFat, setMonounsaturatedFat] = useState('');
+  const [polyunsaturatedFat, setPolyunsaturatedFat] = useState('');
+  const [transFat, setTransFat] = useState('');
+  const [dietaryFiber, setDietaryFiber] = useState('');
+  const [sodium, setSodium] = useState('');
 
   const handleSubmit = async () => {
     data = {
@@ -59,18 +59,18 @@ function FoodMacrosAdd() {
         },
       ]);
       setName('')
-      setPortion('0')
+      setPortion('')
       setPortionType('g')
-      setCalories('0')
-      setProteins('0')
-      setCarbos('0')
-      setTotalFat('0')
-      setSaturatedFat('0')
-      setMonounsaturatedFat('0')
-      setPolyunsaturatedFat('0')
-      setTransFat('0')
-      setDietaryFiber('0')
-      setSodium('0')
+      setCalories('')
+      setProteins('')
+      setCarbos('')
+      setTotalFat('')
+      setSaturatedFat('')
+      setMonounsaturatedFat('')
+      setPolyunsaturatedFat('')
+      setTransFat('')
+      setDietaryFiber('')
+      setSodium('')
     } catch (error) {
       console.log('error', error.message);
       Alert.alert(`Erro ao cadastrar o alimento ${name}!`, 'Ops, verifique os campos e tente novamente!', [

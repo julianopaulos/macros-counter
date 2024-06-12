@@ -20,10 +20,15 @@ const getDataFromCollection = async (collectionName, id) => {
 };
 
 
-const listFood = async() => {
+const listFood = async () => {
   return await getDataFromCollection('food-macros');
 };
 
+const listDailyMeals = async () => {
+  return await getDataFromCollection('daily-macros')
+};
+
 export {
-  listFood
+  listFood,
+  listDailyMeals
 }
